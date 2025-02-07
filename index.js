@@ -21,7 +21,7 @@ async function getCard(aCard) {
 
     return response
 }
-//legger json objektet inni en variabel
+
 
 
 
@@ -30,6 +30,7 @@ searchButton.addEventListener("click", async function () {
     //legger inn inputverdien i en variabel
     const cardName = inputField.value
     console.log(cardName)
+    //legger json objektet inni en variabel
     //sender den variabelen som et argument til funksjonene getCard
     const myCard = await getCard(cardName)
     console.log(myCard)
