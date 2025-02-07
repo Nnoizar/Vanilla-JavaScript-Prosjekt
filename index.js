@@ -24,7 +24,7 @@ async function getCard(aCard) {
 
 //legger json objektet inni en variabel
 
-
+// Hei marius
 
 //kaller på funksjon getCard med et kortnavn fra inputfield
 searchButton.addEventListener("click", async function () {
