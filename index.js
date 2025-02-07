@@ -6,7 +6,7 @@ const defaultHeader = {
 
 const searchButton = document.querySelector("#searchBtn")
 const inputField = document.querySelector("#cardInput")
-const cardName = inputField.value
+
 
 
 //fetching a card from userinput
@@ -22,13 +22,16 @@ async function getCard(aCard) {
     return response
 }
 //legger json objektet inni en variabel
-const myCard = await getCard(cardName)
+
 
 
 //kaller på funksjon getCard med et kortnavn fra inputfield
-searchButton.addEventListener("click", function () {
-    const cardElement = document.querySelector("#card")
-    console.log(cardElement)
+searchButton.addEventListener("click", async function () {
+    //legger inn inputverdien i en variabel
+    const cardName = inputField.value
+    console.log(cardName)
+    //sender den variabelen som et argument til funksjonene getCard
+    const myCard = await getCard(cardName)
     console.log(myCard)
 })
 
