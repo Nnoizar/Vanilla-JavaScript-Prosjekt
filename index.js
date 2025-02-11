@@ -6,6 +6,7 @@ const defaultHeader = {
 
 const searchButton = document.querySelector("#searchBtn")
 const inputField = document.querySelector("#cardInput")
+const cardNameInHtml = document.querySelector("#card")
 
 
 
@@ -22,18 +23,36 @@ async function getCard(aCard) {
     return response
 }
 
-//legger json objektet inni en variabel
 
-// Hei marius
-
-//kaller på funksjon getCard med et kortnavn fra inputfield
+//ved klick på knappen kaller på funksjon som kjører getCard med et kortnavn som argument fra inputfield
 searchButton.addEventListener("click", async function () {
     //legger inn inputverdien i en variabel
     const cardName = inputField.value
-    console.log(cardName)
     //sender den variabelen som et argument til funksjonene getCard
+    //sitter med heledet aktuelle card objektet
     const myCard = await getCard(cardName)
-    console.log(myCard)
+
+    //kaller på funksjonen som lager elementer
+    createCard(myCard)
 })
+
+//creating elements and appending it to the page
+function createCard(newCard) {
+    const h4Element = document.createElement("h4")
+    const imgElement = document.createElement("img")
+    h4Element.textContent = newCard.name
+
+    imgElement.src = `${newCard.image_uris.normal}"`
+    imgElement.style.maxWidth = "30%"
+    imgElement.style.maxHeight = "30%"
+
+    cardNameInHtml.append(h4Element)
+    cardNameInHtml.append(imgElement)
+}
+
+
+
+
+
 
 
